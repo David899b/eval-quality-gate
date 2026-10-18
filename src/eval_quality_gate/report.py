@@ -9,7 +9,7 @@ from pathlib import Path
 from .models import Decision, ExampleResult
 
 
-def to_json(results: Sequence[ExampleResult], decision: Decision) -> dict:
+def to_json(results: Sequence[ExampleResult], decision: Decision) -> dict[str, object]:
     return {
         "decision": {
             "status": decision.status,

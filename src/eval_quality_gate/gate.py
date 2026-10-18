@@ -4,6 +4,7 @@ Five independent dimensions (quality, safety, cost, latency, governance) are
 evaluated separately and combined with a worst-case rule: a single NO_GO
 anywhere blocks the release.
 """
+
 from __future__ import annotations
 
 import math

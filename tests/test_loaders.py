@@ -17,7 +17,9 @@ def test_load_valid_golden_set(tmp_path):
 
 def test_duplicate_id_raises(tmp_path):
     path = tmp_path / "g.json"
-    path.write_text(json.dumps([{"id": "a", "question": "q", "expected": "e"}, {"id": "a", "question": "q", "expected": "e"}]))
+    path.write_text(
+        json.dumps([{"id": "a", "question": "q", "expected": "e"}, {"id": "a", "question": "q", "expected": "e"}])
+    )
     with pytest.raises(ValueError):
         load_golden_set(path)
 

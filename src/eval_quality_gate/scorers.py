@@ -4,6 +4,7 @@ No network, no I/O, no global state. That is deliberate: pure scorers are the
 easiest thing to unit-test, property-test and mutate. The registry lets us add
 scorers (BLEU, embedding similarity, LLM judge) without touching the gate.
 """
+
 from __future__ import annotations
 
 import re
@@ -52,11 +53,7 @@ AVAILABLE_SCORERS: dict[str, Scorer] = {
 }
 
 
-def score_answer(
-    expected: str, answer: str, scorers: dict[str, Scorer] | None = None
-) -> tuple[ScoreResult, ...]:
+def score_answer(expected: str, answer: str, scorers: dict[str, Scorer] | None = None) -> tuple[ScoreResult, ...]:
     """Return one ScoreResult per scorer, rounded for stable reporting."""
     active = scorers or DEFAULT_SCORERS
-    return tuple(
-        ScoreResult(name, round(float(fn(expected, answer)), 6)) for name, fn in active.items()
-    )
+    return tuple(ScoreResult(name, round(float(fn(expected, answer)), 6)) for name, fn in active.items())

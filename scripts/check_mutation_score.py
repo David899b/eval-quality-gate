@@ -5,6 +5,7 @@ Runs ``mutmut run`` and fails if the killed-mutant ratio drops below the
 threshold. Output formats vary across mutmut versions, so parsing is defensive:
 if the summary cannot be parsed we warn and pass rather than block the build.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -35,7 +36,7 @@ def main() -> int:
     text = _ANSI.sub("", proc.stdout + proc.stderr + summary.stdout + summary.stderr)
     killed = _find(text, r"(?i)killed[^\d]*(\d+)")
     survived = _find(text, r"(?i)survived[^\d]*(\d+)")
-    total = _find(text, r"(?i)total[^\d]*(\d+)" )
+    total = _find(text, r"(?i)total[^\d]*(\d+)")
     if total is None and killed is not None and survived is not None:
         total = killed + survived
 

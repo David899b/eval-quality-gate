@@ -1,4 +1,5 @@
 """Property-based tests (Hypothesis). Run in CI where hypothesis is installed."""
+
 from __future__ import annotations
 
 import pytest

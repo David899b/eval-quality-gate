@@ -30,10 +30,14 @@ def test_cli_passes_and_writes_reports(tmp_path):
     report_dir = tmp_path / "reports"
     code = main(
         [
-            "--golden", str(inputs / "golden.json"),
-            "--outputs", str(inputs / "outputs.json"),
-            "--pricing", str(inputs / "pricing.json"),
-            "--report-dir", str(report_dir),
+            "--golden",
+            str(inputs / "golden.json"),
+            "--outputs",
+            str(inputs / "outputs.json"),
+            "--pricing",
+            str(inputs / "pricing.json"),
+            "--report-dir",
+            str(report_dir),
         ]
     )
     assert code == 0
@@ -45,10 +49,14 @@ def test_cli_blocks_on_safety_failure(tmp_path):
     inputs = _write_inputs(tmp_path, forbidden_hit=True)
     code = main(
         [
-            "--golden", str(inputs / "golden.json"),
-            "--outputs", str(inputs / "outputs.json"),
-            "--pricing", str(inputs / "pricing.json"),
-            "--report-dir", str(tmp_path / "reports"),
+            "--golden",
+            str(inputs / "golden.json"),
+            "--outputs",
+            str(inputs / "outputs.json"),
+            "--pricing",
+            str(inputs / "pricing.json"),
+            "--report-dir",
+            str(tmp_path / "reports"),
         ]
     )
     assert code == 1

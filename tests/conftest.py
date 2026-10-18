@@ -1,4 +1,5 @@
 """Shared fixtures. No network, no model: everything is deterministic."""
+
 from __future__ import annotations
 
 import pytest

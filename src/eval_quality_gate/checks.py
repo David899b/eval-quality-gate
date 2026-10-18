@@ -3,6 +3,7 @@
 These run first and cheaply. A failing hard check short-circuits the gate, so
 the expensive semantic scoring never needs to decide safety or governance.
 """
+
 from __future__ import annotations
 
 import re

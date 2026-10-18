@@ -1,4 +1,5 @@
 """Cost model: token usage x published price. Pure arithmetic, no I/O."""
+
 from __future__ import annotations
 
 import json

@@ -1,4 +1,5 @@
 """Load and validate the golden set and candidate outputs (stdlib only)."""
+
 from __future__ import annotations
 
 import json

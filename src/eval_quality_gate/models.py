@@ -3,6 +3,7 @@
 Every value object here is frozen: results must be reproducible and safe to
 share across threads and report writers.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass

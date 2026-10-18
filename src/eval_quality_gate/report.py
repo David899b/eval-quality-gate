@@ -1,4 +1,5 @@
 """Render machine-readable (JSON) and human-readable (Markdown) evidence."""
+
 from __future__ import annotations
 
 import json
@@ -19,8 +20,7 @@ def to_json(results: Sequence[ExampleResult], decision: Decision) -> dict:
                 "optimistic": round(decision.scenario.optimistic, 4),
             },
             "dimensions": [
-                {"dimension": d.dimension, "status": d.status, "detail": d.detail}
-                for d in decision.dimensions
+                {"dimension": d.dimension, "status": d.status, "detail": d.detail} for d in decision.dimensions
             ],
             "policy": {
                 "go_threshold": decision.policy.go_threshold,

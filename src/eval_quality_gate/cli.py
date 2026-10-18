@@ -2,6 +2,7 @@
 
 Exit codes: 0 = GO/REVIEW, 1 = NO_GO (block the merge), 2 = bad input.
 """
+
 from __future__ import annotations
 
 import argparse

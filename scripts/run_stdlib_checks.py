@@ -5,6 +5,7 @@ The full toolchain (pytest, hypothesis, ruff, mypy, mutmut) runs in CI. This
 script proves the *behaviour* locally with nothing but the standard library, so
 a reviewer can reproduce the gate with `python3 scripts/run_stdlib_checks.py`.
 """
+
 from __future__ import annotations
 
 import pathlib
@@ -71,10 +72,14 @@ def run() -> int:
     # CLI on the real golden set
     code = main(
         [
-            "--golden", str(ROOT / "data" / "golden_set.json"),
-            "--outputs", str(ROOT / "data" / "outputs.json"),
-            "--pricing", str(ROOT / "data" / "pricing.json"),
-            "--report-dir", str(ROOT / "reports"),
+            "--golden",
+            str(ROOT / "data" / "golden_set.json"),
+            "--outputs",
+            str(ROOT / "data" / "outputs.json"),
+            "--pricing",
+            str(ROOT / "data" / "pricing.json"),
+            "--report-dir",
+            str(ROOT / "reports"),
         ]
     )
     check("cli exit 0", code == 0)

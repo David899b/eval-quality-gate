@@ -4,6 +4,7 @@ If any of these ever *passes*, the build breaks on purpose: a limitation we
 documented has changed, so a human must revisit the scorer and the report.
 This is the pattern that keeps silent regressions from shipping.
 """
+
 from __future__ import annotations
 
 import pytest

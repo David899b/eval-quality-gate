@@ -2,6 +2,7 @@
 
 Public API surface intentionally small and stable.
 """
+
 from .gate import confidence_band, decide, evaluate, scenario_from_results
 from .loaders import load_golden_set, load_outputs
 from .models import (

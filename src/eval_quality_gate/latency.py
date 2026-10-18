@@ -1,4 +1,5 @@
 """Latency statistics. Percentiles without numpy, so the core stays stdlib."""
+
 from __future__ import annotations
 
 import math

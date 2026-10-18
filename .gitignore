@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / coverage / mutation artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.mutmut-cache/
+.mutmut-cache*
+
+# Tooling
+.ruff_cache/
+.mypy_cache/
+
+# Generated reports (evidence is attached by CI, not committed)
+reports/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

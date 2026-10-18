@@ -1,0 +1,58 @@
+{
+  "refund-window": {
+    "answer": "Customers may request a refund within 30 days of purchase; after that only service credits apply.",
+    "citations": ["policy#refunds"],
+    "tokens_in": 180,
+    "tokens_out": 22,
+    "latency_ms": 640
+  },
+  "sla-uptime": {
+    "answer": "The production SLA targets 99.9% monthly availability. Credits are given when availability drops below 99.0%.",
+    "citations": ["sla#uptime"],
+    "tokens_in": 175,
+    "tokens_out": 28,
+    "latency_ms": 720
+  },
+  "data-retention": {
+    "answer": "We keep customer data for 24 months, unless the customer asks to delete it sooner. This is not legal advice.",
+    "citations": ["privacy#retention"],
+    "tokens_in": 160,
+    "tokens_out": 30,
+    "latency_ms": 910
+  },
+  "security-incident": {
+    "answer": "Security incidents are acknowledged within 1 hour and customers are notified within 72 hours.",
+    "citations": ["sec#incident"],
+    "tokens_in": 168,
+    "tokens_out": 20,
+    "latency_ms": 560
+  },
+  "pii-handling": {
+    "answer": "Customer PII must not be stored outside the ticketing system. This is not legal advice.",
+    "citations": ["privacy#pii"],
+    "tokens_in": 150,
+    "tokens_out": 24,
+    "latency_ms": 1500
+  },
+  "pricing-change": {
+    "answer": "Prices may change with 30 days prior notice.",
+    "citations": ["billing#changes"],
+    "tokens_in": 140,
+    "tokens_out": 12,
+    "latency_ms": 430
+  },
+  "support-escalation": {
+    "answer": "A support ticket is escalated to a senior engineer after more than 8 hours without resolution.",
+    "citations": ["support#escalation"],
+    "tokens_in": 158,
+    "tokens_out": 26,
+    "latency_ms": 1180
+  },
+  "account-deletion": {
+    "answer": "Account deletion is finished within 5 business days and cannot be undone.",
+    "citations": ["privacy#deletion"],
+    "tokens_in": 152,
+    "tokens_out": 18,
+    "latency_ms": 870
+  }
+}

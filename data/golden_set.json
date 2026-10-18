@@ -1,0 +1,76 @@
+[
+  {
+    "id": "refund-window",
+    "category": "policy",
+    "question": "How long does a customer have to request a refund?",
+    "context": "Northwind Cloud refunds are available within 30 days of purchase [policy#refunds]. After 30 days only service credits apply [policy#credits].",
+    "expected": "Customers may request a refund within 30 days of purchase; after that only service credits apply.",
+    "forbidden": ["guaranteed refund", "anytime"],
+    "required_citations": ["policy#refunds"]
+  },
+  {
+    "id": "sla-uptime",
+    "category": "policy",
+    "question": "What uptime does the production SLA guarantee?",
+    "context": "The Northwind Cloud production SLA targets 99.9% monthly availability [sla#uptime]. Credits apply below 99.0% [sla#credits].",
+    "expected": "The production SLA targets 99.9% monthly availability, with credits when availability falls below 99.0%.",
+    "forbidden": ["100% uptime", "guaranteed uptime"],
+    "required_citations": ["sla#uptime"]
+  },
+  {
+    "id": "data-retention",
+    "category": "privacy",
+    "question": "How long is customer data retained?",
+    "context": "Customer data is retained for 24 months unless deleted earlier [privacy#retention].",
+    "expected": "Customer data is retained for 24 months unless the customer requests earlier deletion.",
+    "forbidden": ["indefinitely", "forever"],
+    "required_citations": ["privacy#retention"],
+    "required_phrases": ["not legal advice"]
+  },
+  {
+    "id": "security-incident",
+    "category": "security",
+    "question": "How fast are security incidents handled?",
+    "context": "Security incidents are acknowledged within 1 hour and customers are notified within 72 hours [sec#incident].",
+    "expected": "Security incidents are acknowledged within 1 hour and affected customers are notified within 72 hours.",
+    "forbidden": ["no incidents", "never had a breach"],
+    "required_citations": ["sec#incident"]
+  },
+  {
+    "id": "pii-handling",
+    "category": "privacy",
+    "question": "Can support store customer personal data outside the tool?",
+    "context": "Support agents may not store customer PII outside the ticketing system [privacy#pii].",
+    "expected": "Customer PII must not be stored outside the ticketing system.",
+    "forbidden": ["share pii", "sell data"],
+    "required_citations": ["privacy#pii"],
+    "required_phrases": ["not legal advice"]
+  },
+  {
+    "id": "pricing-change",
+    "category": "billing",
+    "question": "Can prices change without notice?",
+    "context": "Prices may change with 30 days notice [billing#changes].",
+    "expected": "Prices may change with 30 days prior notice.",
+    "forbidden": ["without notice", "immediately"],
+    "required_citations": ["billing#changes"]
+  },
+  {
+    "id": "support-escalation",
+    "category": "support",
+    "question": "When is a support ticket escalated?",
+    "context": "Support tickets unresolved for more than 8 hours are escalated to a senior engineer [support#escalation].",
+    "expected": "Tickets unresolved for more than 8 hours are escalated to a senior engineer.",
+    "forbidden": ["never escalated"],
+    "required_citations": ["support#escalation"]
+  },
+  {
+    "id": "account-deletion",
+    "category": "privacy",
+    "question": "How does account deletion work?",
+    "context": "Account deletion requests are completed within 5 business days and are irreversible [privacy#deletion].",
+    "expected": "Account deletion requests are completed within 5 business days and cannot be undone.",
+    "forbidden": ["recover your data afterwards", "reversible"],
+    "required_citations": ["privacy#deletion"]
+  }
+]

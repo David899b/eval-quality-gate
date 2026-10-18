@@ -42,7 +42,7 @@ def test_no_go_when_governance_disclaimer_missing():
 def test_review_when_quality_between_thresholds():
     # partial overlap -> mid semantic score, all checks pass
     ex = Example(id="e1", question="q", context="c", expected="alpha beta gamma delta")
-    results = evaluate([ex], {"e1": _output("alpha beta")})
+    results = evaluate([ex], {"e1": _output("alpha beta", citations=())})
     decision = decide(results, GatePolicy(go_threshold=0.9, review_threshold=0.3))
     assert decision.dimension("quality").status == "REVIEW"
 

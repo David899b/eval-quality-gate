@@ -10,7 +10,7 @@ import re
 
 from .models import CandidateOutput, CheckResult, Example
 
-_EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+_EMAIL = re.compile(r"[\w.!#$%&'*+/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)+")
 _SSN = re.compile(r"\b\d{3}-\d{2}-\d{4}\b")
 _CARD = re.compile(r"\b(?:\d[ -]?){13,16}\d\b")
 _PHONE = re.compile(r"\+\d{1,3}[ -]?\d{2,4}[ -]?\d{3,4}[ -]?\d{3,4}")

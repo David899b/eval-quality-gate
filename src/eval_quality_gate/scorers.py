@@ -22,9 +22,13 @@ def _tokenize(text: str) -> list[str]:
     return _WORD.findall(text.lower())
 
 
+def _normalize(text: str) -> str:
+    return " ".join(text.split()).lower()
+
+
 def exact_match(expected: str, answer: str) -> float:
-    """1.0 only when the normalised strings are identical."""
-    return 1.0 if expected.strip().lower() == answer.strip().lower() else 0.0
+    """1.0 only when the normalised strings are identical (case- and whitespace-insensitive)."""
+    return 1.0 if _normalize(expected) == _normalize(answer) else 0.0
 
 
 def token_f1(expected: str, answer: str) -> float:

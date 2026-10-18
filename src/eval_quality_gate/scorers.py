@@ -8,16 +8,16 @@ from __future__ import annotations
 
 import re
 from collections import Counter
-from typing import Callable
+from collections.abc import Callable
 
 from .models import ScoreResult
 
-Scorer = "Callable[[str, str], float]"
+Scorer = Callable[[str, str], float]
 
 _WORD = re.compile(r"[a-z0-9]+")
 
 
-def _tokens(text: str) -> list[str]:
+def _tokenize(text: str) -> list[str]:
     return _WORD.findall(text.lower())
 
 
@@ -40,26 +40,23 @@ def token_f1(expected: str, answer: str) -> float:
     return 2 * precision * recall / (precision + recall)
 
 
-def _tokenize(text: str) -> list[str]:
-    return _WORD.findall(text.lower())
-
-
 # Graded semantic metric(s) used for the confidence band. ``exact_match`` is a
 # hard metric, so it is offered as a utility but kept out of the default mean.
-DEFAULT_SCORERS: dict[str, "Scorer"] = {
+DEFAULT_SCORERS: dict[str, Scorer] = {
     "token_f1": token_f1,
 }
 
-AVAILABLE_SCORERS: dict[str, "Scorer"] = {
+AVAILABLE_SCORERS: dict[str, Scorer] = {
     "exact_match": exact_match,
     "token_f1": token_f1,
 }
 
 
-
-def score_answer(expected: str, answer: str, scorers: dict[str, "Scorer"] | None = None):
+def score_answer(
+    expected: str, answer: str, scorers: dict[str, Scorer] | None = None
+) -> tuple[ScoreResult, ...]:
     """Return one ScoreResult per scorer, rounded for stable reporting."""
-    from .models import ScoreResult
-
     active = scorers or DEFAULT_SCORERS
-    return tuple(ScoreResult(name, round(float(fn(expected, answer)), 6)) for name, fn in active.items())
+    return tuple(
+        ScoreResult(name, round(float(fn(expected, answer)), 6)) for name, fn in active.items()
+    )

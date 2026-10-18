@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import argparse
 import sys
-from pathlib import Path
 
 from .cost import load_pricing
 from .gate import decide, evaluate

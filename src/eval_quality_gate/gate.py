@@ -30,7 +30,7 @@ def evaluate_example(
     example: Example,
     price_in: float = 0.0,
     price_out: float = 0.0,
-    scorers: dict[str, "Scorer"] | None = None,
+    scorers: dict[str, Scorer] | None = None,
 ) -> ExampleResult:
     checks = run_checks(output, example)
     scores = score_answer(example.expected, output.answer, scorers or DEFAULT_SCORERS)
@@ -50,7 +50,7 @@ def evaluate(
     outputs: Mapping[str, CandidateOutput],
     price_in: float = 0.0,
     price_out: float = 0.0,
-    scorers: dict[str, "Scorer"] | None = None,
+    scorers: dict[str, Scorer] | None = None,
 ) -> list[ExampleResult]:
     return [evaluate_example(outputs[e.id], e, price_in, price_out, scorers) for e in examples]
 
@@ -67,8 +67,7 @@ def confidence_band(values: Sequence[float], z: float = 1.96) -> tuple[float, fl
     if n < 2:
         return mean, mean, mean
     variance = sum((v - mean) ** 2 for v in values) / (n - 1)
-    stderr = math.sqrt(var / n) if (var := variance) >= 0 else 0.0
-    se = math.sqrt(var / n)
+    se = math.sqrt(max(variance, 0.0) / n)
     pessimistic = max(0.0, mean - z * se)
     optimistic = min(1.0, mean + z * se)
     return pessimistic, mean, optimistic
